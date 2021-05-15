@@ -1,0 +1,89 @@
+class Stack:
+    items = []  # 스택을 저장할 리스트
+    top = -1  # 스택 포인터
+
+    def __init__(self, max_num):  # 스택의 크기를 받음
+        self.max_num = max_num
+
+    def push(self, data):  # 데이터넣는 메소드
+
+        if self.is_full():  # 스택이 가득 차있는지 확인함
+            print("스택이 가득 차있습니다.")
+        else:
+            self.items.append(data)  # 리스트에 값을 넣어줌
+            self.top += 1
+
+    def pop(self):  # 데이터를 삭제하고 값을 반환시켜주는 메소드
+        if self.is_empty():  # 값이 비어있는지 확인함
+            print("스택이 비어있습니다")
+        else:
+            data = self.items[self.top]
+            del self.items[self.top]
+            self.top -= 1
+            return data
+
+    def indexof(self, find):  # 스택속에서 찾으려는 데이터 위치 검색(못찾으면 -1 반환)
+
+        for i in range(0, self.top + 1):
+            if self.items[i] == find:
+                return i
+
+        return -1
+
+    def size(self):  # 현재 스택에 저장된요소의 총 갯수
+        count = self.top + 1
+        return  count
+
+    def clear(self):  # 스택을 초기화 하는 메소드
+        del self.items[:]
+        self.top = -1
+
+    def is_empty(self):  # 스택이 비어있는지 확인
+        return self.top < 0
+
+    def is_full(self):  # 스택이 가득 차 있는지 확인
+
+        return self.top + 1 >= self.max_num
+
+    def capacity(self):  # 스택의 용량 확인함.
+        return self.max_num
+
+    def dump(self):  # 아래에서 부터 꼭대기순으로 데이터를 출력해줌
+        self.is_empty()
+        for i in range(0, self.top +1, 1):
+            print(self.items[i])
+
+    def peek(self):  # 맨위에있는 데이터를 확인함
+        return self.items[self.top]
+
+a = Stack(int(input("스택의크기를 입력해주세요:")))
+while True:
+    print("스택허용량:{}/{}".format(a.top+1,a.capacity()))
+    menu = int(input('(1)push (2)pop (3)peek (4)dump (5)search (6)clear (7)info (0)exit : '))
+    if menu == 0:
+        break
+
+    if menu==1:
+        a.push(input('데이터를입력하세요:'))
+
+    elif menu==2:
+        print("pop의결과:{}".format(a.pop()))
+
+    elif menu==3:
+        print(a.indexof(input("찾을려는 data를 입력해주세요")))
+
+    elif menu==4:
+        print("size는{}입니다".format(a.size()))
+
+    elif menu==5:
+        a.clear()
+        print("초기화됬다")
+
+    elif menu==6:
+        print("MaxSize는{}입니다".format(a.capacity()))
+
+    elif menu==7:
+        a.dump()
+
+    elif menu==8:
+        print("맨위에있는 data는 {}입니다".format(a.peek()))
