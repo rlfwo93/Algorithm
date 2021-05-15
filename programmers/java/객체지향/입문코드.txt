@@ -1,0 +1,60 @@
+class Point {
+   double x;
+   double y;
+
+   Point(double x, double y) {
+      this.x = x;
+      this.y = y;
+
+   }
+
+   public void setX(double x) {
+      this.x = x;
+
+   }
+
+   public void setY(double y) {
+      this.y = y;
+   }
+
+   public double[] get() {
+      double[] array = new double[2];
+      array[0] = this.x;
+      array[1] = this.y;
+      return array;
+   }
+
+   public boolean onTheAxis() {
+      if (this.x != 0 && this.y != 0)
+         return true;
+
+      else
+         return false;
+   }
+
+   public String move(double x, double y) {
+      x = this.x + x;
+      y = this.y + y;
+
+      return x + " " + y;
+   }
+
+   public String dist(Point p) {
+      double Dx = this.x - p.x;
+      double Dy = this.y - p.y;
+
+      return Dx + " " + Dy;
+   }
+
+}
+
+public class Gcd {
+   public static void main(String[] args) {
+
+      Point point = new Point(0, 2);
+      Point point1 = new Point(1, 0);
+//      point.setX(5);
+//      point.setY(6);
+      System.out.print(point.dist(point1));
+   }
+}

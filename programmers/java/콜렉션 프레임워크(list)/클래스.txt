@@ -1,0 +1,59 @@
+﻿import java.util.*;
+
+class Test {
+	int n;
+	String s;
+
+	public Test(int n, String s) {
+		super();
+		this.n = n;
+		this.s = s;
+	}
+
+	void show() {
+		System.out.print(n + "" + s + " ");
+	}
+}
+
+public class Study {
+
+	public static void main(String[] args) {
+		
+		LinkedList<Test> li = new LinkedList<>();
+
+		// 입력 1번째 방법
+		Test t1 = new Test(10, "박진석");
+		li.add(t1);
+
+		// 입력 2번째방법
+		li.add(new Test(20, "정영관"));
+
+		System.out.println(li); // 민증 번호만 나옴
+
+		for (int i = 0; i < 5; i++) {
+			li.add(new Test(i * 100 + 100, "이상훈" + i));
+		}
+
+		// 출력 1
+		for (int i = 0; i < li.size(); i++) {
+			Test tt = li.get(i);
+			tt.show();
+			//li.get(i).show(); //위랑 같은 방법
+		}
+		System.out.println();
+		// 출력 2
+		for (Test i : li) {
+			i.show();
+		}
+		System.out.println();
+
+		// 출력 3
+		Iterator<Test> it = li.iterator();
+		while (it.hasNext()) {
+			Test tt = it.next();
+			tt.show();
+			//it.next().show();
+		}
+		System.out.println();
+	}
+}

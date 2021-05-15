@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.util.*;
+import java.util.*;
+
+class Triangle {
+	double a;
+	double b;
+	double c;
+
+	public Triangle(double a, double b, double c) {
+		this.a = a;
+		this.b = b;
+		this.c = c;
+
+	}
+
+	public double area() {
+		double s = (a + b + c) / 2;
+		double TriangleArea = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+		System.out.println("헤론의 공식을 사용하였습니다.");
+		return TriangleArea;
+
+	}
+
+}
+
+class Equilateral extends Triangle {
+
+	public Equilateral() {
+		super(2, 2, 2);
+	}
+
+	public double area() {
+		double EquilateralArea = (Math.sqrt(3) / 4) * a * a;
+		System.out.println("정사각형의 넓이 공식을 사용하였습니다");
+		return EquilateralArea;
+	}
+
+}
+
+public class Gcd {
+	public static void main(String[] args) {
+		Equilateral equilateral = new Equilateral();
+		Triangle triangle = new Triangle(2, 3, 4);
+	System.out.println(triangle.area());
+System.out.println(equilateral.area());
+	}
+}

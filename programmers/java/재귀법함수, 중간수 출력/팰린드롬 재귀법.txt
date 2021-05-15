@@ -1,0 +1,30 @@
+	public static boolean is_palindrome(String n) {
+		int length = n.length(); // 입력받은 문자열의 길이
+		String[] str_array = n.split(""); // 입력받은 문자열을 배열에 넣기
+		String slice;// 재귀함수에 쓸 다음 문자열
+
+		if (length < 2) { // 문자열의 길이가 1이면 true 리턴
+			return true;
+		} else {
+			slice = n.substring(1, length - 1);
+		}
+
+		if (!(str_array[0].equals(str_array[length - 1]))) { // 문자열의 처음과 끝을 비교하여 다르면 false 리턴
+			return false;
+		}
+
+		if (slice.length() == 1 || slice.length() == 0) { // 재귀가 마지막으로 돌때 문자열의 길이가 공백이거나 1이면 true리턴
+			return true;
+		}
+
+		return is_palindrome(slice);
+	}
+
+	public static void main(String[] args) {
+
+		String input = new Scanner(System.in).nextLine();
+
+		System.out.println(is_palindrome(input));
+
+	}
+}

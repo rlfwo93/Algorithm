@@ -1,0 +1,26 @@
+ static int gcd(int x, int y) {
+      /*while (y != 0) { // 비재귀적으로 구현
+         int temp = y;
+         y = x % y;
+         x = temp;
+      }
+      return (x);*/
+      
+      if(y==0) { // 재귀적으로 구현
+         return x;
+      }else {
+         return gcd(y, x % y);
+      }
+   }
+
+   public static void main(String[] args) {
+      
+      int num1 = new Scanner(System.in).nextInt();
+      int num2 = new Scanner(System.in).nextInt();
+      
+      int gcd = gcd(num1, num2);
+      System.out.println("최대공약수는 : "+ gcd);
+      System.out.println("최소공배수는 : "+ gcd * (num1/gcd) * (num2/gcd));
+       
+   }
+}

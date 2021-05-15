@@ -1,0 +1,95 @@
+1. abcde를 입력했을때 중간글자인 c를 출력
+
+	짝수일때 abcd를 입력했을때 bc를출력.
+
+
+
+				답안 코드
+
+
+
+
+		for (int i = 0; i < start.length; i++) {
+			
+			if (start.length % 2 != 0) { //짝수
+				if ((start.length / 2)  == i) {
+					System.out.println(start[i]);
+					break;
+				}
+			}		
+			if(start.length%2==0) { //홀수 
+				if((start.length / 2) == i){
+					System.out.println(start[i-1]+""+start[i]);
+					break;
+				}
+			}						
+		}
+	}
+
+-----------------------------------------------for문 없이---------------------------------------
+
+
+
+
+
+String start[] = (new Scanner(System.in).nextLine()).split("");
+
+		if (start.length % 2 != 0) { // 짝수
+
+			System.out.println(start[start.length / 2]);
+
+		} else { // 홀수
+
+			System.out.println(start[start.length / 2 - 1] + "" + start[start.length / 2]);
+
+		}
+
+
+
+
+
+-----------------------------------------substring----------------------------------------------------
+
+
+
+
+
+
+String start = new Scanner(System.in).nextLine();
+		int length = start.length() / 2;
+		if (start.length() % 2 != 0) {
+			System.out.print(start.substring(length, length + 1));
+		}
+
+		else {
+			System.out.print(start.substring(length - 1, length + 1));
+		}
+
+	}
+}
+
+----------------------------------------------------------------------------------------------------------
+
+2. n을넣었을때 소수인지 아닌지 판별하시오.
+
+
+                                                  답안코드
+
+
+
+
+int start = new Scanner(System.in).nextInt();
+		int count = 0;
+		for (int i = 1; i <= start; i++) {
+			if (start % i == 0) {
+				count++;
+
+			}
+					}
+		if(count==2) {
+			System.out.println(start+"는소수입니다.");
+		}
+		else {
+			System.out.println(start+"는소수가아닙니다.");
+		}
+

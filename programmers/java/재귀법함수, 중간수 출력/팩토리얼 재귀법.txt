@@ -1,0 +1,15 @@
+     int input = new Scanner(System.in).nextInt();
+      System.out.println(locat(input));
+
+   }
+
+   public static int locat(int n) {
+
+      if (n <= 1)
+         return n;
+
+      else
+         return locat(n - 1) * n;
+
+   }
+}

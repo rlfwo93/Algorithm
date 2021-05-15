@@ -1,0 +1,30 @@
+public class sf {
+
+   public static void main(String[] args) {
+      locat();
+   }
+
+   public static void locat() {
+      String n[] = new Scanner(System.in).nextLine().split(" ");
+      int a = Integer.parseInt(n[0]);
+      int b = Integer.parseInt(n[1]);
+      int c = Integer.parseInt(n[2]);
+      int sum = 0;
+      if (a < b)
+         if (b < c)
+            sum = b;
+
+         else
+            sum = c;
+
+      else {
+         if (a < c)
+            sum = a;
+
+         else
+            sum = c;
+      }
+
+      System.out.println(sum);
+   }
+}

@@ -1,0 +1,65 @@
+﻿import java.util.*;
+
+public class Study {
+
+	public static void main(String[] args) {
+		
+		LinkedList<String> li = new LinkedList<>();
+
+		li.add("박진석");
+
+		for (int i = 0; i < 6; i++) {
+			li.add("문민규" + i);
+		}
+		li.add(3, "이상훈");
+
+		System.out.println("[출력 1번째 방법]");
+		System.out.println(li); // 1번째 방법
+
+		System.out.println("[출력 2번째 방법]");
+		for (int i = 0; i < li.size(); i++) {// 2번째 방법
+			System.out.print(li.get(i) + " ");
+		}System.out.println();
+
+		System.out.println("[출력 3번째 방법]");
+		for (String i : li) {// 3번째 방법
+			System.out.print(i + " ");
+		}System.out.println();
+
+		System.out.println("[출력 4번째 방법]");
+		Iterator<String> it = li.iterator();
+		while (it.hasNext()) {// 4번째 방법
+			String str = it.next();
+			System.out.print(str + " ");
+		}System.out.println();
+
+		System.out.println("[업데이트]");
+		li.set(4, "정영관");
+		li.set(5, "김희찬");
+		li.set(6, "김관용");
+		System.out.println(li);
+
+		System.out.println("[삭제 1번째 방법]");
+		li.remove(4);
+		System.out.println(li);
+		System.out.println("[삭제 2번째 방법]");
+		for (int i = 0; i < li.size();) {
+			if (li.get(i) == "이상훈") {
+				li.remove(i);
+			} else {
+				i++;
+			}
+		}
+		System.out.println(li);
+		
+		System.out.println("[삭제 3번째 방법]");
+		it = li.iterator();
+		while (it.hasNext()) {
+			String n = it.next();
+			if (n.equals("김관용")) {
+				it.remove();
+			}
+		}
+		System.out.println(li);
+	}
+}
